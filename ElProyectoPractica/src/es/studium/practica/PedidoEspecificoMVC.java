@@ -7,9 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class PedidoEspecificoMVC {
-	static ArrayList<Libro> tabla = new ArrayList<Libro>();
-	
-	
+	static ArrayList<Libro> tabla = new ArrayList<Libro>();	
 	public static void cargarDatos() {
 		// TODO Auto-generated method stub
 		// Creamos objetos para la conexión
@@ -71,29 +69,59 @@ public class PedidoEspecificoMVC {
 	 */
 	public static String getTitulo(int idLibro)
 	{
-		return tabla.get(idLibro).getNombreLibro();
+		String result="";
+		for(Libro item: tabla) {
+			if(item.getIdLibro()==idLibro) {
+				result=item.getNombreLibro();
+			}
+		}
+		return result;
 	}
 	/**
 	 * Devuelve el autor del libro identificado con idLibro
 	 */
 	public static String getAutor(int idLibro)
 	{
-		return tabla.get(idLibro).getNombreAutor();
+		String result="";
+		for(Libro item: tabla) {
+			if(item.getIdLibro()==idLibro) {
+				result=item.getNombreAutor();
+			}
+		}
+		return result;
 	}
 	public static String getEditorial(int idLibro)
 	{
-		return tabla.get(idLibro).getNombreEditorial();
+		String result="";
+		for(Libro item: tabla) {
+			if(item.getIdLibro()==idLibro) {
+				result=item.getNombreEditorial();
+			}
+		}
+		return result;
+
 	}
 	/**
 	 * Devuelve el precio del libro identificado con idLibro
 	 */
 	public static double getPrecio(int idLibro)
 	{
-		return tabla.get(idLibro).getPrecioLibro();
+		double result=0.0;
+		for(Libro item: tabla) {
+			if(item.getIdLibro()==idLibro) {
+				result=item.getPrecioLibro();
+			}
+		}
+		return result;		
 	}
 	public static int getCantidadExistente(int idLibro)
 	{
-		return tabla.get(idLibro).getCantidadLibro();
-	}
-	
+		int result=0;				
+		for(Libro item: tabla) {
+			if(item.getIdLibro()==idLibro) {
+				result=item.getCantidadLibro();
+			}
+		}
+		return result;	
+	}	
 }

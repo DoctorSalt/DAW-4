@@ -64,9 +64,6 @@ public class opcionesComprobantes extends HttpServlet {
 		case "libros":
 			destino="/Libros.jsp?usuario="+usuario;
 			break;
-		case "librosModificacion":
-			destino="/LibrosModificacion.html?usuario="+usuario;
-			break;
 		case "libroAlta":
 			destino="/LibrosAlta.jsp?usuario="+usuario;
 			break;

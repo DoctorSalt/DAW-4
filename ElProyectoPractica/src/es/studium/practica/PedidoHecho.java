@@ -105,7 +105,7 @@ public class PedidoHecho {
 			double precioUnitario=PedidoEspecificoMVC.getPrecio(item.getIdLibro());
 			int cantidadPedido = item.getCantidad();
 			double Subtotal = precioUnitario*cantidadPedido;
-			total =+ Subtotal;
+			total =total+ Subtotal;
 		}
 		precioTotal = total;
 	}

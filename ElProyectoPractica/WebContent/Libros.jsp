@@ -86,7 +86,7 @@ TranformadorDatos datos=new TranformadorDatos();
 							
 							<td><%=idLibro %></td>
 							<td><%=nombreLibro%></td>
-							<td><%=precioLibro%></td>
+							<td><%=precioLibro %> &euro;</td>
 							<td><%=cantidadLibro%></td>
 							<td><%=fechaLibro%></td>
 							<td><%=nombreAutor%></td>

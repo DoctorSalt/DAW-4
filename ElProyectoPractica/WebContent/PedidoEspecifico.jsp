@@ -7,6 +7,7 @@
    String idPedido = request.getParameter("idPedido");
    String estadoPedido = request.getParameter("estadoPedido");
    PedidoHecho pedido = new PedidoHecho(idPedido);   
+   TranformadorDatos trand = new TranformadorDatos() ;
    %> 
 <!DOCTYPE html>
 <html lang="es">
@@ -51,8 +52,8 @@
 					<tbody>
 						<tr>
 							<td><%=pedido.getNombreUsuario() %></td>
-							<td><%=pedido.getPrecioTotal() %></td>
-							<td><%=pedido.getFecha() %></td>
+							<td><%=trand.numeroPuntoComa(pedido.getPrecioTotal()+"") %> &euro;</td>
+							<td><%=trand.fechaEspaniol(pedido.getFecha()) %></td>
 						</tr>
 					</tbody>
 				</table>
@@ -79,7 +80,7 @@
 						<td><%=PedidoEspecificoMVC.getTitulo(item.getIdLibro())%></td>
 						<td><%=PedidoEspecificoMVC.getAutor(item.getIdLibro())%></td>
 						<td><%=PedidoEspecificoMVC.getEditorial(item.getIdLibro())%></td>
-						<td><%=PedidoEspecificoMVC.getPrecio(item.getIdLibro()) %> </td>
+						<td><%=trand.numeroPuntoComa(PedidoEspecificoMVC.getPrecio(item.getIdLibro())+"" ) %> &euro; </td>
 						<td><%=item.getCantidad()%></td>
 						<td><%=PedidoEspecificoMVC.getPrecio(item.getIdLibro()) * item.getCantidad()%></td>
 					</tr>

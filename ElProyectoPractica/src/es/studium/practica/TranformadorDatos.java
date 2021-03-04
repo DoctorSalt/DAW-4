@@ -19,5 +19,5 @@ public class TranformadorDatos {
 		System.out.println("array: "+numerosArray.length);
 		result=numerosArray[0]+","+numerosArray[1];
 		return result;
-	}
+	}	
 }

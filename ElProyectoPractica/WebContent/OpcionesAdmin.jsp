@@ -46,7 +46,7 @@
 				<a href="/ElProyectoPractica//opcionesComprobantes?lugarRedireccion=editorial" class="btn btn-warning">Editoriales</a>
 			</div>
 			<div class="col-12 mt-3 col-md-6 col-lg-6">
-				<a href="/ElProyectoPractica/opcionesComprobantes?lugarRedireccion=pedidos" class="btn btn-secondary">Hacer Pedidos</a>
+				<a href="/ElProyectoPractica/opcionesComprobantes?lugarRedireccion=pedidos" class="btn btn-secondary">Pedidos</a>
 			</div>
 		</div>
 	</div>
