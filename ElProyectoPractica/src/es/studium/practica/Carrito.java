@@ -51,7 +51,7 @@ public class Carrito extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		request.setCharacterEncoding("UTF-8");
 		// Establecemos el tipo MIME del mensaje de respuesta
 		response.setContentType("text/html");
@@ -69,9 +69,19 @@ public class Carrito extends HttpServlet {
 		String nextPage = "";
 		String todo = request.getParameter("todo");
 		String enviado = request.getParameter("creado");
-		if(todo==null)
-		{
-			nextPage = "/order.jsp?usuario="+usuario;
+		System.out.println("Entro "+enviado);
+		
+		if(enviado!=null) {
+			System.out.println("Condicion "+enviado.equals("true"));
+			if(enviado.equals("true")) {
+				System.out.println("Entro");
+				nextPage = "/order.jsp?exitoEnviado="+"true"+"&usuario="+usuario;
+			}else {
+				System.out.println("Entro mal");
+				nextPage = "/order.jsp?error="+"Error al insertar en base de datos el pedido"+"&usuario="+usuario;
+			}			
+		} else if(todo==null){
+			nextPage = "/order.jsp?usuario="+usuario;			
 		}
 		else if(todo.equals("add"))
 		{
@@ -159,10 +169,6 @@ public class Carrito extends HttpServlet {
 				nextPage = "/checkout.jsp?usuario="+usuario;
 				System.out.println(nextPage);
 			}
-		}else if(enviado.equals("true")) {
-			nextPage = "/order.jsp?exitoEnviado="+"true"+"&usuario="+usuario;
-		}else {
-			nextPage = "/order.jsp?error="+"Error al insertar en base de datos el pedido"+"&usuario="+usuario;
 		}
 		ServletContext servletContext = getServletContext();
 		RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(nextPage);

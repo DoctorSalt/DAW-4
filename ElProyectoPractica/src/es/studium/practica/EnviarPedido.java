@@ -62,14 +62,17 @@ public class EnviarPedido extends HttpServlet {
 						actualizarPedido(item);					
 					}
 					if(error==false) {
+						System.out.println("Se ha realizado sin problemas");
 						bien=true;
 						session.removeAttribute("carrito");
 					}else {
+						System.out.println("Se cometio un error");
 						session.removeAttribute("carrito");
 					}				
 				}
 			}			
-			if(bien) {
+			if(bien==true) {
+			
 				ServletContext servletContext = getServletContext();
 				request.setAttribute("usuario", usuario);
 

@@ -5,6 +5,7 @@
 <% String usuario=request.getParameter("usuario");
  String error=request.getParameter("error");
  String exito = request.getParameter("exitoEnviado");
+ System.out.println("Usuario "+usuario+" - "+" exitoEnviado "+exito+" - "+"Error "+error);
 %>
 <!DOCTYPE html>
 <html lang="es">
@@ -128,12 +129,12 @@
 		<% } %>
 	</div>
 	<% if(exito!=null){ %>
-	<div class="bg-success text-white">
+	<div class="bg-success text-white text-center">
 		<p>Se ha realizado la inserción sin problemas</p>
 	</div>
 	<% } %>
 	<% if(error!=null){ %>
-	<div class="bg-danger text-white">
+	<div class="bg-danger text-white text-center">
 		<p><%=error%></p>
 	</div>
 	<% } %>
