@@ -55,7 +55,7 @@ public class ModifiquenLibros extends HttpServlet {
 			String nombreLibro= request.getParameter("nombreElegido");
 			Double precioLibro= Double.parseDouble(numeroCorrecto(request.getParameter("precioElegido")));
 			int cantidadLibro = Integer.parseInt(request.getParameter("cantidadElegido"));
-			String fechaLibro =  request.getParameter("fechaElegido");
+			String fechaLibro =  transformadorFecha(request.getParameter("fechaElegido"));
 			String autorLibro =  request.getParameter("autorCorresp");
 			String editorLibro = request.getParameter("editorialCorresp");
 			try {
@@ -123,6 +123,15 @@ public class ModifiquenLibros extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	private String transformadorFecha(String fechaCorrecta) {
+		String fechaDevuelta="";
+		if(fechaCorrecta.contains("/")) {
+			String [] arrayFecha =fechaCorrecta.split("/");
+			fechaDevuelta = arrayFecha[2]+"-"+arrayFecha[1]+"-"+arrayFecha[0];	
+		}
+		
+		return fechaDevuelta;
 	}
 
 }

@@ -64,7 +64,7 @@
 			</div>
 			<div class="form-group col-12 mt-3 col-md-6 col-lg-6">
 				<label for="fechaElegido">Fecha Elegido</label> 
-				<input type="date" class="form-control" id="fechaElegido" name="fechaElegido">
+				<input type="text" class="form-control" id="fechaElegido" name="fechaElegido">
 			</div>
 			<div class="form-group col-12 mt-3 col-md-6 col-lg-6">
 				<label for="autorCorresp">Autor</label> 

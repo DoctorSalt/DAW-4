@@ -73,7 +73,7 @@ public class CrearLibro extends HttpServlet {
 			String idAutorResultante = autores[1];
 			String[]editoriales=editorLibro.split("-");
 			String idEditorialResultante = editoriales[1];
-			String fechaFormateada = fechaLibro;
+			String fechaFormateada = transformadorFecha(fechaLibro);
 			//Hacer Consulta
 			try {
 				
@@ -129,5 +129,14 @@ public class CrearLibro extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	private String transformadorFecha(String fechaCorrecta) {
+		String fechaDevuelta="";
+		if(fechaCorrecta.contains("/")) {
+			String [] arrayFecha =fechaCorrecta.split("/");
+			fechaDevuelta = arrayFecha[2]+"-"+arrayFecha[1]+"-"+arrayFecha[0];	
+		}
+		
+		return fechaDevuelta;
 	}
 }

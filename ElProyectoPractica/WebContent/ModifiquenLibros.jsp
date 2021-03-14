@@ -5,6 +5,7 @@
 <%
 	String resultado = "";
 String usuario = request.getParameter("usuario");
+TranformadorDatos trans = new TranformadorDatos();
 if (request.getParameter("resultado") != null) {
 	resultado = request.getParameter("resultado");
 }
@@ -86,9 +87,9 @@ stmt = conn.createStatement();
 					name="cantidadElegido" value="<%=libro.getCantidadLibro()%>">
 			</div>
 			<div class="form-group col-12 mt-3 col-md-6 col-lg-6">
-				<label for="fechaElegido">Fecha Elegido</label> <input type="date"
-					class="form-control" id="fechaElegido" name="fechaElegido"
-					value="<%=libro.getFechaLibro()%>">
+				<label for="fechaElegido">Fecha Elegido</label> 
+				<input type="text" class="form-control" id="fechaElegido" name="fechaElegido"
+					value="<%=trans.fechaEspaniol(libro.getFechaLibro())%>">
 			</div>
 			<div class="form-group col-12 mt-3 col-md-6 col-lg-6">
 				<label for="autorCorresp">Autor</label> <select id="autorCorresp"

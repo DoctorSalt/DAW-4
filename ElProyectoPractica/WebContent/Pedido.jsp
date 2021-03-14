@@ -56,7 +56,7 @@ TranformadorDatos datos=new TranformadorDatos();
   					<%
   					Connection conn = DriverManager.getConnection(url, userName, password);
 					Statement stmt = conn.createStatement();	
-					String sqlStr = "SELECT idPedido, fechaPedido, nombreUsuario, enviadoPedido FROM tiendalibros.pedidos, tiendalibros.usuarios where idUsuarioFK=idUsuario;";
+					String sqlStr = "SELECT idPedido, fechaPedido, nombreUsuario, enviadoPedido FROM tiendalibros.pedidos, tiendalibros.usuarios where idUsuarioFK=idUsuario order by fechaPedido desc;";
 					ResultSet rs = stmt.executeQuery(sqlStr);
 					int count = 0;		
 					while(rs.next()){
